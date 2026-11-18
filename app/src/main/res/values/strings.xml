@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_launcher_name">Keyboard</string>
-    <string name="redirection_note">Please enable Fossify Keyboard on the next screen, to make it an available keyboard. Press \'Back\' once enabled.</string>
-    <string name="change_keyboard">Change Keyboard</string>
+    <string name="app_launcher_name">Keynova</string>
+    <string name="redirection_note">Please enable Keynova Keyboard on the next screen to make it available. Press \'Back\' once enabled.</string>
+    <string name="change_keyboard">Switch Keyboard</string>
+    <!-- Keynova Dashboard & Setup -->
+    <string name="keynova_tagline">Fast, sleek &amp; customizable typing experience</string>
+    <string name="keynova_setup_title">Quick Setup</string>
+    <string name="keynova_step1_title">1. Enable Keynova Keyboard</string>
+    <string name="keynova_step1_subtitle">Turn on Keynova in your Android input settings</string>
+    <string name="keynova_step2_title">2. Select Keynova as Active</string>
+    <string name="keynova_step2_subtitle">Choose Keynova Keyboard as your default input method</string>
+    <string name="keynova_status_ready">Ready to Type</string>
+    <string name="keynova_status_setup_needed">Setup Needed</string>
+    <string name="keynova_status_done">Done</string>
+    <string name="keynova_status_tap">Tap</string>
+    <string name="keynova_quick_actions">Quick Actions</string>
+    <string name="keynova_action_theme">Theme &amp; Colors</string>
+    <string name="keynova_action_languages">Languages</string>
+    <string name="keynova_action_clipboard">Clipboard</string>
+    <string name="keynova_action_settings">Settings</string>
+    <string name="keynova_playground_title">Try Keynova Keyboard</string>
+    <string name="keynova_playground_subtitle">Tap any field below to test layouts, emojis &amp; clipboard</string>
+    <string name="keynova_hint_text">Type a message here…</string>
+    <string name="keynova_hint_phone">Phone or numbers…</string>
+    <string name="keynova_hint_email">name@example.com</string>
+    <string name="keynova_hint_password">Password field</string>
+    <string name="ad_privacy_options">Ad privacy preferences</string>
     <!-- Clipboard -->
     <string name="manage_clipboard_items">Manage clipboard items</string>
     <string name="manage_clipboard_empty">Your clipboard is empty.</string>

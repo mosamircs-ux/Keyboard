@@ -27,7 +27,7 @@
     <string name="emojis">表情符號</string>
     <string name="keycode_shift">Shift</string>
     <string name="manage_keyboard_languages">管理鍵盤語言</string>
-    <string name="redirection_note">請在下一個畫面中啟用 Fossify 鍵盤，使其成為可用的鍵盤。啟用後請按「返回」。</string>
+    <string name="redirection_note">請在下一個畫面中啟用 Keynova 鍵盤，使其成為可用的鍵盤。啟用後請按「返回」。</string>
     <string name="keycode_enter">Enter</string>
     <string name="keycode_space">空白鍵</string>
     <string name="keyboard_height">鍵盤高度</string>

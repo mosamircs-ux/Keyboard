@@ -5,6 +5,7 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import com.google.android.gms.ads.AdView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import org.fossify.commons.dialogs.FilePickerDialog
@@ -18,6 +19,7 @@ import org.fossify.keyboard.dialogs.AddOrEditClipDialog
 import org.fossify.keyboard.dialogs.ExportClipsDialog
 import org.fossify.keyboard.extensions.clipsDB
 import org.fossify.keyboard.extensions.config
+import org.fossify.keyboard.helpers.AdManager
 import org.fossify.keyboard.helpers.ClipsHelper
 import org.fossify.keyboard.models.Clip
 import java.io.File
@@ -31,6 +33,7 @@ class ManageClipboardItemsActivity : SimpleActivity(), RefreshRecyclerViewListen
     }
 
     private val binding by viewBinding(ActivityManageClipboardItemsBinding::inflate)
+    private var bannerAdView: AdView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,8 +43,11 @@ class ManageClipboardItemsActivity : SimpleActivity(), RefreshRecyclerViewListen
         updateClips()
 
         binding.apply {
-            setupEdgeToEdge(padBottomSystem = listOf(clipboardItemsList))
+            setupEdgeToEdge(padBottomSystem = listOf(adBannerContainer, clipboardItemsList))
             setupMaterialScrollListener(binding.clipboardItemsList, binding.clipboardAppbar)
+            adBannerContainer.post {
+                bannerAdView = AdManager.loadAdaptiveBanner(this@ManageClipboardItemsActivity, adBannerContainer)
+            }
 
             clipboardItemsPlaceholder.text = "${getText(R.string.manage_clipboard_empty)}\n\n${getText(R.string.manage_clips)}"
             clipboardItemsPlaceholder2.apply {
@@ -57,6 +63,18 @@ class ManageClipboardItemsActivity : SimpleActivity(), RefreshRecyclerViewListen
     override fun onResume() {
         super.onResume()
         setupTopAppBar(binding.clipboardAppbar, NavigationIcon.Arrow)
+        bannerAdView?.resume()
+    }
+
+    override fun onPause() {
+        bannerAdView?.pause()
+        super.onPause()
+    }
+
+    override fun onDestroy() {
+        bannerAdView?.destroy()
+        bannerAdView = null
+        super.onDestroy()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {

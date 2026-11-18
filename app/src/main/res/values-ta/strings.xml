@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">விசைப்பலகை</string>
-    <string name="redirection_note">கிடைக்கக்கூடிய விசைப்பலகையாக மாற்ற, அடுத்த திரையில் Fossify விசைப்பலகையை இயக்கவும். இயக்கப்பட்டவுடன் \'Back\' என்பதை அழுத்தவும்.</string>
+    <string name="redirection_note">கிடைக்கக்கூடிய விசைப்பலகையாக மாற்ற, அடுத்த திரையில் Keynova விசைப்பலகையை இயக்கவும். இயக்கப்பட்டவுடன் \'Back\' என்பதை அழுத்தவும்.</string>
     <string name="change_keyboard">விசைப்பலகையை மாற்றவும்</string>
     <string name="manage_clipboard_items">இடைநிலைப்பலகை உருப்படிகளை நிர்வகிக்கவும்</string>
     <string name="manage_clipboard_empty">உங்கள் இடைநிலைப்பலகை காலியாக உள்ளது.</string>

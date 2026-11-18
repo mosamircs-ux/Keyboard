@@ -13,6 +13,9 @@ detektCompose = "0.4.28"
 room = "2.8.5"
 #Fossify
 commons = "7.1.2"
+#AdMob & UMP Consent
+play-services-ads = "25.5.0"
+google-ump = "4.0.0"
 #Gradle
 gradlePlugins-agp = "9.5.0"
 #build
@@ -33,6 +36,9 @@ androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref =
 compose-detekt = { module = "io.nlopez.compose.rules:detekt", version.ref = "detektCompose" }
 #Fossify
 fossify-commons = { module = "org.fossify:commons", version.ref = "commons" }
+#AdMob & UMP Consent
+play-services-ads = { module = "com.google.android.gms:play-services-ads", version.ref = "play-services-ads" }
+google-ump = { module = "com.google.android.ump:user-messaging-platform", version.ref = "google-ump" }
 [bundles]
 room = [
     "androidx-room-ktx",

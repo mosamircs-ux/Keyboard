@@ -45,7 +45,7 @@
     <string name="activities">Aktiviteter</string>
     <string name="objects">Föremål</string>
     <string name="flags">Flaggor</string>
-    <string name="redirection_note">Aktivera Fossify Keyboard på nästa skärm för att göra tangentbordet tillgängligt. Tryck på \'Tillbaka\' när det har aktiverats.</string>
+    <string name="redirection_note">Aktivera Keynova Keyboard på nästa skärm för att göra tangentbordet tillgängligt. Tryck på \'Tillbaka\' när det har aktiverats.</string>
     <string name="show_emoji_key">Visa emojitangent</string>
     <string name="show_language_switch_key">Visa skifttangent för språk</string>
     <string name="sound_on_keypress">Ljud vid tangenttryck</string>

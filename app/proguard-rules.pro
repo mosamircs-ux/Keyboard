@@ -1,1 +1,3 @@
 -keep class org.fossify.keyboard.helpers.MyKeyboard$Key { *; }
+-keep class com.google.android.gms.ads.** { *; }
+-keep class com.google.android.ump.** { *; }

@@ -37,7 +37,7 @@
     <string name="voice_typing_method">Μέθοδος Φωνητικής Πληκτρολόγησης</string>
     <string name="switch_to_voice_typing">Εναλλαγή σε φωνητική πληκτρολόγηση</string>
     <string name="show_language_switch_key">Εμφάνιση πλήκτρου εναλλαγής γλώσσας</string>
-    <string name="redirection_note">Παρακαλώ ενεργοποιήστε το Fossify Keyboard στην επόμενη οθόνη, ώστε να γίνει διαθέσιμο πληκτρολόγιο. Πατήστε \"Πίσω\" μόλις το ενεργοποιήσετε.</string>
+    <string name="redirection_note">Παρακαλώ ενεργοποιήστε το Keynova Keyboard στην επόμενη οθόνη, ώστε να γίνει διαθέσιμο πληκτρολόγιο. Πατήστε \"Πίσω\" μόλις το ενεργοποιήσετε.</string>
     <string name="keycode_enter">Επιβεβαίωση</string>
     <string name="typing_and_input">Πληκτρολόγηση &amp; εισαγωγή</string>
     <string name="sound_on_keypress">Ήχος στο πάτημα κουμπιού</string>

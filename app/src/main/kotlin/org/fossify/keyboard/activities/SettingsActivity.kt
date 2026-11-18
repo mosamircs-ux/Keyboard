@@ -2,6 +2,7 @@ package org.fossify.keyboard.activities
 
 import android.content.Intent
 import android.os.Bundle
+import com.google.android.gms.ads.AdView
 import org.fossify.commons.dialogs.RadioGroupDialog
 import org.fossify.commons.extensions.beVisibleIf
 import org.fossify.commons.extensions.getProperPrimaryColor
@@ -20,6 +21,7 @@ import org.fossify.keyboard.extensions.getKeyboardLanguageText
 import org.fossify.keyboard.extensions.getKeyboardLanguagesRadioItems
 import org.fossify.keyboard.extensions.getVoiceInputMethods
 import org.fossify.keyboard.extensions.getVoiceInputRadioItems
+import org.fossify.keyboard.helpers.AdManager
 import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_100_PERCENT
 import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_120_PERCENT
 import org.fossify.keyboard.helpers.KEYBOARD_HEIGHT_140_PERCENT
@@ -35,22 +37,28 @@ import kotlin.system.exitProcess
 
 class SettingsActivity : SimpleActivity() {
     private val binding by viewBinding(ActivitySettingsBinding::inflate)
+    private var bannerAdView: AdView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         binding.apply {
-            setupEdgeToEdge(padBottomSystem = listOf(settingsNestedScrollview))
+            setupEdgeToEdge(padBottomSystem = listOf(adBannerContainer, settingsNestedScrollview))
             setupMaterialScrollListener(binding.settingsNestedScrollview, binding.settingsAppbar)
+            adBannerContainer.post {
+                bannerAdView = AdManager.loadAdaptiveBanner(this@SettingsActivity, adBannerContainer)
+            }
         }
     }
 
     override fun onResume() {
         super.onResume()
         setupTopAppBar(binding.settingsAppbar, NavigationIcon.Arrow)
+        bannerAdView?.resume()
 
         setupCustomizeColors()
+        setupAdPrivacyOptions()
         setupUseEnglish()
         setupLanguage()
         setupManageClipboardItems()
@@ -80,6 +88,27 @@ class SettingsActivity : SimpleActivity() {
                 settingsClipboardSettingsLabel
             ).forEach {
                 it.setTextColor(getProperPrimaryColor())
+            }
+        }
+    }
+
+    override fun onPause() {
+        bannerAdView?.pause()
+        super.onPause()
+    }
+
+    override fun onDestroy() {
+        bannerAdView?.destroy()
+        bannerAdView = null
+        super.onDestroy()
+    }
+
+    private fun setupAdPrivacyOptions() {
+        binding.apply {
+            val required = AdManager.isPrivacyOptionsRequired(this@SettingsActivity)
+            settingsAdPrivacyHolder.beVisibleIf(required)
+            settingsAdPrivacyHolder.setOnClickListener {
+                AdManager.showPrivacyOptionsForm(this@SettingsActivity)
             }
         }
     }

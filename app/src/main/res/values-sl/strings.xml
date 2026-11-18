@@ -28,7 +28,7 @@
     <string name="show_key_borders">Prikaži meje ključa</string>
     <string name="show_numbers_row">Prikažite številke v ločeni vrstici</string>
     <string name="emojis">Emoji-ji</string>
-    <string name="redirection_note">Na naslednjem zaslonu omogočite tipkovnico Fossify, da bo na voljo. Ko jo omogočite, pritisnite »Nazaj«.</string>
+    <string name="redirection_note">Na naslednjem zaslonu omogočite tipkovnico Keynova, da bo na voljo. Ko jo omogočite, pritisnite »Nazaj«.</string>
     <string name="manage_keyboard_languages">Upravljanje jezikov tipkovnice</string>
     <string name="keycode_shift">Shift</string>
     <string name="keycode_enter">Enter</string>

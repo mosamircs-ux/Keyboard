@@ -24,7 +24,7 @@
     <string name="show_popup">Mostrar pop-up ao digitar</string>
     <string name="vibrate_on_keypress">Vibrar ao digitar</string>
     <string name="keyboard_language">Idioma do teclado</string>
-    <string name="redirection_note">Ative o Fossify Teclado na próxima tela para torná-lo um teclado disponível. Pressione \"Voltar\" depois de ativado.</string>
+    <string name="redirection_note">Ative o Keynova Teclado na próxima tela para torná-lo um teclado disponível. Pressione \"Voltar\" depois de ativado.</string>
     <string name="keycode_space">Barra de espaço</string>
     <string name="keyboard_height">Altura do teclado</string>
     <string name="start_sentences_capitalized">Começar frases com letra maiúscula</string>

@@ -27,8 +27,15 @@ val baseVersionCode = project.property("VERSION_CODE").toString().toInt()
 val abiCodes = mapOf("armeabi-v7a" to 1, "arm64-v8a" to 2, "x86" to 3, "x86_64" to 4)
 val abiSplits = providers.gradleProperty("ABI_SPLITS").map(String::toBoolean).getOrElse(false)
 
+val admobAppId = providers.gradleProperty("ADMOB_APP_ID")
+    .getOrElse("ca-app-pub-3940256099942544~3347511713")
+val admobBannerId = providers.gradleProperty("ADMOB_BANNER_ID")
+    .getOrElse("ca-app-pub-3940256099942544/9214589741")
+val admobInterstitialId = providers.gradleProperty("ADMOB_INTERSTITIAL_ID")
+    .getOrElse("ca-app-pub-3940256099942544/1033173712")
+
 base {
-    archivesName = "keyboard-$baseVersionCode"
+    archivesName = "keynova-keyboard-$baseVersionCode"
 }
 
 android {
@@ -40,8 +47,8 @@ android {
         targetSdk = project.libs.versions.app.build.targetSDK.get().toInt()
         versionName = project.property("VERSION_NAME").toString()
         versionCode = baseVersionCode
-        multiDexEnabled = true
         vectorDrawables.useSupportLibrary = true
+        manifestPlaceholders["admobAppId"] = admobAppId
         ksp {
             arg("room.schemaLocation", "$projectDir/schemas")
         }
@@ -75,10 +82,16 @@ android {
     buildTypes {
         debug {
             applicationIdSuffix = ".debug"
+            manifestPlaceholders["admobAppId"] = "ca-app-pub-3940256099942544~3347511713"
+            buildConfigField("String", "ADMOB_BANNER_ID", "\"ca-app-pub-3940256099942544/9214589741\"")
+            buildConfigField("String", "ADMOB_INTERSTITIAL_ID", "\"ca-app-pub-3940256099942544/1033173712\"")
         }
         release {
             isMinifyEnabled = true
             isShrinkResources = true
+            manifestPlaceholders["admobAppId"] = admobAppId
+            buildConfigField("String", "ADMOB_BANNER_ID", "\"$admobBannerId\"")
+            buildConfigField("String", "ADMOB_INTERSTITIAL_ID", "\"$admobInterstitialId\"")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -91,8 +104,12 @@ android {
 
     flavorDimensions.add("variants")
     productFlavors {
-        register("foss")
-        register("gplay")
+        register("foss") {
+            buildConfigField("boolean", "ADS_ENABLED", "false")
+        }
+        register("gplay") {
+            buildConfigField("boolean", "ADS_ENABLED", "true")
+        }
     }
 
     splits {
@@ -129,7 +146,7 @@ android {
         )
     }
 
-    namespace = project.property("APP_ID").toString()
+    namespace = "org.fossify.keyboard"
 
     lint {
         checkReleaseBuilds = false
@@ -175,6 +192,8 @@ dependencies {
     implementation(libs.fossify.commons)
     implementation(libs.androidx.emoji2.bundled)
     implementation(libs.androidx.autofill)
+    implementation(libs.play.services.ads)
+    implementation(libs.google.ump)
 
     implementation(libs.bundles.room)
     ksp(libs.androidx.room.compiler)
